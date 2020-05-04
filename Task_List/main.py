@@ -4,7 +4,7 @@ MostrarListaPendentes                   Done
 MostrarListaConcluidas                  Done
 Adicionar Tarefas                       Done
 Remover Tarefes.                        Done
-Concluir Tarefas.
+Concluir Tarefas.                       Done
 Sair Programa                           Done
 
 '''

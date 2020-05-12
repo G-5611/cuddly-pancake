@@ -54,7 +54,7 @@ def getListDone():
     if listDone_not_empty() == True:
         for index, i in enumerate (ListDone):
             print(index, '-', i)
-            return
+        return
     else:
         return
 

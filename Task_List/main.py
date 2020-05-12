@@ -45,7 +45,7 @@ def getListPendent():
     if listPendent_not_empty() == True:
         for index, i in enumerate (ListPendent):
             print(index, '-', i)
-            return
+        return
     else:
         return
 

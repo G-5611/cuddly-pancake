@@ -1,10 +1,14 @@
 '''
+Listas de Tarefas
+
+
+        Funções a fazer.
 
 MostrarListaPendentes                   Done
 MostrarListaConcluidas                  Done
 Adicionar Tarefas                       Done
 Remover Tarefes.                        Done
-Concluir Tarefas.
+Concluir Tarefas.                       Done
 Sair Programa                           Done
 
 '''
@@ -13,12 +17,12 @@ Sair Programa                           Done
 #ListaDone.append(ListaPendent[i])
 
 def menu():
-    options =[1,2,3,4,5]
+    options =[1,2,3,4,5,6]
     option_user = int
 
     while option_user not in options:
 
-        print("O que deseja fazer? \n Digite [1] para vizualizar a lista de tarefas \n Digite [2] para adicionar uma tarefa \n Digite [3] para remover uma tarefa \n Digite [4] para marcar uma tarefa como concluida \n Digite [5]  para visualizar a lista de tarefas concluidas \n Digite [0] para sair do programa")
+        print("O que deseja fazer? \n Digite [1] para vizualizar a lista de tarefas \n Digite [2] para adicionar uma tarefa \n Digite [3] para remover uma tarefa \n Digite [4] para marcar uma tarefa como concluida \n Digite [5] para visualizar a lista de tarefas concluidas \n Digite [6] para mover um item na lista de tarefas a fazer \n Digite [0] para sair do programa")
         option_user = int(input())
 
         if option_user not in options:
@@ -45,7 +49,7 @@ def getListPendent():
     if listPendent_not_empty() == True:
         for index, i in enumerate (ListPendent):
             print(index, '-', i)
-            return
+        return
     else:
         return
 
@@ -54,7 +58,7 @@ def getListDone():
     if listDone_not_empty() == True:
         for index, i in enumerate (ListDone):
             print(index, '-', i)
-            return
+        return
     else:
         return
 
@@ -70,18 +74,6 @@ def removeTask():
     else:
         return
 
-
-def listPendent_not_empty():
-    situation = bool(ListPendent)
-    if not situation:
-        print(" A lista está vazia ")
-    return situation
-
-def listDone_not_empty():
-    situation = bool(ListDone)
-    if not situation:
-        print(" A lista está vazia ")
-    return situation
 
 def checkTask():
 
@@ -99,18 +91,39 @@ def checkTask():
 
         except Exception as e:
             print('Erro Exception:',e)
-
-
     else:
         return
 
 
+def moveTask():
+    if listPendent_not_empty() == True:
+        getListPendent()
+        moveIndex=int(input("Digite o indice da tarefa que deseja mover"))
+        positionIndex=int(input("Digite o indice da posição que deseja inserir "))
+        try:
+
+            aux=ListPendent.pop(moveIndex)
+            ListPendent.insert(positionIndex,aux)
+        except IndexError as e:
+            print('Erro IndexError:', e)
+
+        except Exception as e:
+            print('Erro Exception:', e)
+    else:
+        return
+
+def listPendent_not_empty():
+    situation = bool(ListPendent)
+    if not situation:
+        print(" A lista está vazia ")
+    return situation
 
 
-
-
-
-
+def listDone_not_empty():
+    situation = bool(ListDone)
+    if not situation:
+        print(" A lista está vazia ")
+    return situation
 
 
 
@@ -142,6 +155,9 @@ if __name__ == '__main__':
 
         elif action == 5:
             getListDone()
+
+        elif action == 6:
+            moveTask()
 
         elif action == 0:
             break

@@ -17,7 +17,7 @@ Sair Programa                           Done
 #ListaDone.append(ListaPendent[i])
 
 def menu():
-    options =[1,2,3,4,5,6]
+    options =[0,1,2,3,4,5,6]
     option_user = int
 
     while option_user not in options:

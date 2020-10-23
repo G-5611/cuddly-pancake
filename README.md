@@ -1,2 +1,2 @@
 # cuddly-pancake
-Just a repository with some tests 
+Console application to do task lists
